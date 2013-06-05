@@ -1,4 +1,4 @@
 githubtest
 ==========
 
-a first github repository
+a first github repository to demonstrate git
