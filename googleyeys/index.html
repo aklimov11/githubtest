@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Googly Eyes</title>
+    </head>
+    <body>
+        <canvas id='googlyeyes'>if you can see this you don`t have html5 canvas </canvas>    
+        
+    </body>
+    <script src="processing-1.4.1.js"></script>
+    <script type="application/processing" data-processing-target="googlyeyes">
+        size(400, 400);
+        
+// the center coordinates of both eyes
+    var centerX1 = 123;
+    var centerY1 = 200;
+    var centerX2 = 276;
+    var centerY2 = 200;
+
+   void draw (){
+    background(0, 0, 0);
+
+    // draw the eye whites
+    strokeWeight(3);
+    stroke(0, 0, 0);
+    fill(255, 216, 61);
+    ellipse(centerX1, centerY1, 100, 100);
+    ellipse(centerX2, centerY2, 100, 100);
+
+    // calculate position of first eyeball
+    var eyeX1 = mouseX;
+    var eyeY1 = mouseY;
+    var dist1 = dist(eyeX1, eyeY1, centerX1, centerY1);
+    if (dist1 > 25) {
+    eyeX1 = 25*(mouseX - centerX1)/dist1 + centerX1;
+    eyeY1 = 25*(mouseY - centerY1)/dist1 + centerY1;
+    }
+
+    // calculate position of second eyeball
+    var eyeX2 = mouseX;
+    var eyeY2 = mouseY;
+    var dist2 = dist(eyeX2, eyeY2, centerX2, centerY2);
+    if (dist2 > 25) {
+    eyeX2 = 25*(mouseX - centerX2)/dist2 + centerX2;
+    eyeY2 = 25*(mouseY - centerY2)/dist2 + centerY2;
+    }
+
+    // draw eyeballs
+    strokeWeight(50);
+    stroke(51, 19, 11);
+    point(eyeX1, eyeY1);
+    point(eyeX2, eyeY2);
+    } 
+
+    </script>
+    </html>
